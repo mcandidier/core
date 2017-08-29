@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>TIR - Total Intergrated Resources</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+  {% include 'snippets/css.html' %}
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini fixed">
+
+<div class="wrapper">
+
+  {% include 'snippets/navbar.html' %}
+
+  {% include 'snippets/sidebar.html' %}
+
+  <!-- Page Content -->
+  <div class="content-wrapper">
+    <section class="content-header">
+      <h1>
+        {% block page_title %} {% endblock page_title %}
+        <small>it all starts here</small>
+      </h1>
+    </section>
+
+    {% block content %}
+
+    {% endblock content %}
+
+  </div>
+  <!-- End of Page Content -->
+
+
+  {% include 'snippets/footer.html' %}
+
+</div>
+<!-- ./wrapper -->
+
+{% include 'snippets/js.html' %}
+
+<!-- Custom JS -->
+{% block script %}
+
+{% endblock script %}
+
+</body>
+</html>

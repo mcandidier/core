@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block page_title %} Users {% endblock page_title %}
+
+
+{% block content %}
+
+<section class="content">
+
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">User List</h3>
+            <div class="box-tools pull-right">
+                <a href="{% url 'profiles:create' %}" class="btn btn-success btn-sm">ADD USER <i class="fa fa-plus"></i></a>
+            </div>
+        </div>
+
+        <div class="box-body">
+            <table id="users-table" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                      <th>DATE ADDED</th>
+                      <th>FIRST NAME</th>
+                      <th>LAST NAME</th>
+                      <th>USER GROUP</th>
+                      <th>EMAIL ADDRESS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in object_list %}
+                        <tr>
+                            <td>{{ user.date_joined|date:"Y-m-d" }}</td>
+                            <td>{{ user.first_name }}</td>
+                            <td>{{ user.last_name }}</td>
+                            <td></td>
+                            <td>{{ user.email }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+            <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+
+</section>
+
+{% endblock content %}
+
+{% block script %}
+    <script>
+      $(function () {
+        $('#users-table').DataTable({
+          'paging'      : true,
+          'lengthChange': true,
+          'searching'   : true,
+          'ordering'    : true,
+          'info'        : true,
+          'autoWidth'   : false
+        })
+      })
+    </script>
+{% endblock script %}
