@@ -50,7 +50,6 @@ def admin_edit_password(request, pk):
     form = AdminPasswordChangeForm(user=user)
     if request.method == 'POST':
         form = AdminPasswordChangeForm(user=user, data=request.POST)
-        import pdb;pdb.set_trace()
         if form.is_valid():
             form.save()
             return redirect('/u')
